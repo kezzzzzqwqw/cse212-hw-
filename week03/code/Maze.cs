@@ -20,7 +20,7 @@ public class Maze
     private int _currX = 1;
     private int _currY = 1;
 
-    public Maze(Dictionary<ValueTuple<int, int>, bool[]> mazeMap)
+    public Maze(Dictionary<(int, int), bool[]> mazeMap)
     {
         _mazeMap = mazeMap;
     }
@@ -32,8 +32,17 @@ public class Maze
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        // index 0 = left
+        if (_mazeMap[(_currX, _currY)][0])
+        {
+            _currX--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
+
 
     /// <summary>
     /// Check to see if you can move right.  If you can, then move.  If you
@@ -41,7 +50,15 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        // index 1 = right
+        if (_mazeMap[(_currX, _currY)][1])
+        {
+            _currX++;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -50,8 +67,18 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        // index 2 = up
+        if (_mazeMap[(_currX, _currY)][2])
+        {
+            _currY--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
+
+
 
     /// <summary>
     /// Check to see if you can move down.  If you can, then move.  If you
@@ -59,7 +86,15 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        // index 3 = down
+        if (_mazeMap[(_currX, _currY)][3])
+        {
+            _currY++;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     public string GetStatus()
@@ -67,3 +102,6 @@ public class Maze
         return $"Current location (x={_currX}, y={_currY})";
     }
 }
+
+
+
