@@ -183,7 +183,6 @@ public static class Recursion
         }
         else
         {
-            // 3. Try all four directions
             int[][] directions = { new[]{0,-1}, new[]{0,1}, new[]{-1,0}, new[]{1,0} };
 
             foreach (var dir in directions)
@@ -198,7 +197,7 @@ public static class Recursion
             }
         }
 
-        // 4. Backtrack: remove current position before returning
+        
         currPath.RemoveAt(currPath.Count - 1);
         
 
